@@ -1,0 +1,35 @@
+<div class="main-container">
+  <div>
+    <form [formGroup]="form" class="form">
+      <h1 class="title">Login</h1>
+
+      <div *ngIf="generalError" class="error-message" role="alert">
+        Incorrect information
+      </div>
+
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput placeholder="elon.musk@gmail.com" formControlName="email">
+          <mat-error *ngIf="form.get('email')?.touched && form.get('email')?.hasError('required')">Required</mat-error>
+          <mat-error *ngIf="form.get('email')?.touched && form.get('email')?.hasError('email')">Incorrect email</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Mot de passe</mat-label>
+          <input type="password" matInput placeholder="********" formControlName="password">
+          <mat-error *ngIf="form.get('password')?.touched && form.get('password')?.hasError('required')">Required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <button class="login-btn" type="button" mat-raised-button color="primary" (click)="onSubmit()">Login</button>
+        <button class="signup-btn" type="button" mat-raised-button color="primary" routerLink="/user/signup">Don't have an account ?</button>
+      </div>
+
+
+    </form>
+  </div>
+</div>

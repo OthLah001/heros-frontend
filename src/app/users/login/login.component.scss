@@ -1,0 +1,67 @@
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(251, 251, 251);
+  display: grid;
+  place-items: center;
+
+  div {
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  width: 70%;
+  text-align: center;
+  margin: 0px auto 40px auto;
+}
+
+.form {
+  background-color: white;
+  width: 70%;
+  padding: 50px 0;
+  box-shadow: 0 1px 2px 0 rgba(51,51,51,0.12);
+
+  mat-form-field {
+    width: 420px;
+
+    &:first-child {
+      margin-bottom: 20px;
+    }
+  }
+
+  .input-icon {
+    cursor: pointer;
+  }
+}
+
+.error-message {
+  width: 420px !important;
+  margin: auto;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--error-color);
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  padding: .75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+
+button {
+  width: 420px;
+  padding: 6px 16px;
+
+  &.login-btn {
+    background-color: var(--main-color) !important;
+    margin-bottom: 20px;
+  }
+
+  &.signup-btn {
+    background-color: var(--secondary-color) !important;
+  }
+}
