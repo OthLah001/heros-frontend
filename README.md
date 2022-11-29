@@ -23,7 +23,3 @@ You need to install:
 ## Run the server
 
     $ npm start
-
-## Run the server
-
-    $ npm test
