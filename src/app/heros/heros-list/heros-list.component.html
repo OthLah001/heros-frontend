@@ -23,10 +23,12 @@
         <th>Powers</th>
         <th>Rate</th>
       </tr>
-      <tr *ngFor="let hero of ((heros$ | async))" (click)="showHeroProfile(hero.id)">
-        <td>{{ hero.name }}</td>
-        <td>{{ hero.powers }}</td>
-        <td>-</td>
+      <tr *ngFor="let hero of ((heros$ | async))">
+        <td (click)="showHeroProfile(hero.id)">{{ hero.name }}</td>
+        <td (click)="showHeroProfile(hero.id)">{{ hero.powers }}</td>
+        <td>
+          <app-hero-rating [heroId]="hero.id" [rating]="hero.rating" *ngIf="hero.userId != (userId$ | async)"></app-hero-rating>
+        </td>
       </tr>
     </table>
 

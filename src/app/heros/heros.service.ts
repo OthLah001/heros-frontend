@@ -27,4 +27,8 @@ export class HerosService {
   getHero(id: number): Observable<HeroType> {
     return this.http.get(`${this.BASIC_PATH}/get/${id}`, true);
   }
+
+  rateHero(heroId: number, rating: number): Observable<{message: string}> {
+    return this.http.post(`${this.BASIC_PATH}/rate`, {heroId, rating}, true);
+  }
 }

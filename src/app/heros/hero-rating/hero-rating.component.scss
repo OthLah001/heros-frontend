@@ -1,0 +1,17 @@
+::ng-deep .rating-stars {
+  form {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+
+  input.star:checked ~ label.star:before {
+    color: var(--main-color) !important;
+    text-shadow: 0 0 20px #85d7ff !important;
+  }
+
+  label.star {
+    font-size: 20px !important;
+    cursor: pointer;
+  }
+}

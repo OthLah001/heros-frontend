@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { merge, Observable, of } from 'rxjs';
+import { UserState } from 'src/app/users/store';
 import { HeroProfileComponent } from '../hero-profile/hero-profile.component';
 import { HeroListType } from '../heros.models';
 import { HerosActions, HerosState } from '../store';
@@ -18,6 +19,7 @@ export class HerosListComponent implements OnInit, OnDestroy {
   public heros$: Observable<HeroListType> = of();
   public canLoadHeros: boolean = true;
   public loadingData: boolean = true;
+  public userId$: Observable<number> = of();
 
   public searchFC: FormControl = new FormControl('');
   public orderByFC: FormControl = new FormControl(true);
@@ -32,6 +34,7 @@ export class HerosListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.heros$ = this.store.select(HerosState.herosSelector);
+    this.userId$ = this.store.select(UserState.userId);
 
     this.loadHeros();
 

@@ -15,6 +15,8 @@ import { HerosService } from './heros.service';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { HeroProfileComponent } from './hero-profile/hero-profile.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NgxStarRatingModule } from 'ngx-star-rating';
+import { HeroRatingComponent } from './hero-rating/hero-rating.component';
 
 const routes: Routes = [
   {
@@ -36,7 +38,8 @@ const routes: Routes = [
   declarations: [
     HerosListComponent,
     HeroAddComponent,
-    HeroProfileComponent
+    HeroProfileComponent,
+    HeroRatingComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +53,8 @@ const routes: Routes = [
     MatProgressSpinnerModule,
     MatSlideToggleModule,
     EffectsModule.forFeature([HerosEffects]),
-    MatDialogModule
+    MatDialogModule,
+    NgxStarRatingModule
   ],
   providers: [
     HerosService,

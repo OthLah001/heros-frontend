@@ -33,7 +33,7 @@ function initApp(http: CustomHttpClientService) {
       },
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
   ],
   providers: [
     CookieService,

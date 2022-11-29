@@ -4,6 +4,7 @@ export type HeroType = {
   name: string;
   powers: string;
   description?: string;
+  rating: number;
 }
 
 export type HeroListType = HeroType[];
