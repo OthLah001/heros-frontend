@@ -1,27 +1,29 @@
-# Frontend
+# Tech Stack
+* [Angular](https://angular.io/)
+* [NgRx](https://ngrx.io/)
+* [RxJs](https://rxjs.dev/)
+* [TypeScript](https://www.typescriptlang.org/)
+* [Scss](https://sass-lang.com/)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
+# Local Demo
 
-## Development server
+## Requirements
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+You need to install:
+* [Node.js](https://nodejs.org/)
+* [NPM](https://npmjs.org/)
+* [Git](https://git-scm.com/)
 
-## Code scaffolding
+## Clone the repo and install the packages
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    $ git clone https://github.com/OthLah001/heros-frontend.git
+    $ cd heros-frontend
+    $ npm i
 
-## Build
+## Run the server
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    $ npm start
 
-## Running unit tests
+## Run the server
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    $ npm test
