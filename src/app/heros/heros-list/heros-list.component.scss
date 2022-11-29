@@ -1,0 +1,47 @@
+
+.list-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.add-btn {
+  margin-bottom: 30px;
+  background-color: var(--main-color) !important;
+  color: white !important;
+  text-transform: uppercase;
+}
+
+.filters-cont {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+}
+
+.table {
+  width: 80%;
+
+  td, th {
+    width: 30%;
+    padding: 10px;
+    text-align: left;
+  }
+  &, th, td, tr {
+    border: 2px solid grey;
+    border-collapse: collapse;
+  }
+}
+
+.load-btn {
+  margin-top: 30px;
+  background-color: var(--secondary-color) !important;
+  color: white !important;
+}
+
+::ng-deep .mdc-switch {
+  .mdc-switch__icons {
+    display: none;
+  }
+}

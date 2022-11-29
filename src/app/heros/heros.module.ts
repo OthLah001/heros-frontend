@@ -8,6 +8,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { EffectsModule } from '@ngrx/effects';
+import { HerosEffects } from './store/effetcs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { HerosService } from './heros.service';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 const routes: Routes = [
   {
@@ -38,7 +43,14 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatSlideToggleModule,
+    EffectsModule.forFeature([HerosEffects])
+  ],
+  providers: [
+    HerosService,
+    EffectsModule
   ]
 })
 export class HerosModule { }

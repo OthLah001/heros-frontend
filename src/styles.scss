@@ -45,3 +45,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --secondary-color: #6c757d;
   --success-color: #22b24b;
 }
+
+.mat-mdc-slide-toggle.filter-toggle.mat-primary {
+  --mdc-switch-selected-focus-state-layer-color: #58d17b;
+  --mdc-switch-selected-handle-color: #58d17b;
+  --mdc-switch-selected-hover-state-layer-color: #58d17b;
+  --mdc-switch-selected-pressed-state-layer-color: #58d17b;
+  --mdc-switch-selected-focus-handle-color: #22b24b;
+  --mdc-switch-selected-hover-handle-color: #22b24b;
+  --mdc-switch-selected-pressed-handle-color: #22b24b;
+  --mdc-switch-selected-focus-track-color: #c8ffd8;
+  --mdc-switch-selected-hover-track-color: #c8ffd8;
+  --mdc-switch-selected-pressed-track-color: #c8ffd8;
+  --mdc-switch-selected-track-color: #c8ffd8;
+}

@@ -3,6 +3,7 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
+import { HerosReducers } from '../heros/store';
 import { UserReducers } from '../users/store';
 
 export interface AppState {
@@ -10,7 +11,8 @@ export interface AppState {
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-  'accounts': UserReducers.authReducer
+  'user': UserReducers.userReducer,
+  'heros': HerosReducers.herosReducer
 };
 
 

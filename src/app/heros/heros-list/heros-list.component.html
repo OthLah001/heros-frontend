@@ -1,1 +1,41 @@
-<p>heros-list works!</p>
+<div class="list-cont">
+  <button class="add-btn" type="button" mat-raised-button routerLink="/heros/add">Add heros</button>
+
+  <div class="filters-cont">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-icon matPrefix>search</mat-icon>
+      <input type="text" matInput placeholder="Search" [formControl]="searchFC">
+    </mat-form-field>
+
+    <div>
+      Sort By Powers
+      <mat-slide-toggle [formControl]="orderByFC" color="primary" class="filter-toggle"></mat-slide-toggle>
+      Sort By Name
+    </div>
+  </div>
+
+
+  <mat-spinner *ngIf="loadingData"></mat-spinner>
+  <ng-container *ngIf="!loadingData">
+    <table class="table">
+      <tr>
+        <th>Hero Name</th>
+        <th>Powers</th>
+        <th>Rate</th>
+      </tr>
+      <tr *ngFor="let hero of ((heros$ | async))">
+        <td>{{ hero.name }}</td>
+        <td>{{ hero.powers }}</td>
+        <td>-</td>
+      </tr>
+    </table>
+
+    <button
+      *ngIf="canLoadHeros"
+      class="load-btn"
+      type="button"
+      mat-raised-button
+      (click)="loadHeros()"
+    >Load more</button>
+  </ng-container>
+</div>
