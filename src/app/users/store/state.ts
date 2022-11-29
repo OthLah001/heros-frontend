@@ -2,18 +2,18 @@ import { AuthUserType } from "../models";
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 
 
-export interface IAccountState {
+export interface IUserState {
   login: boolean;
   user: AuthUserType | null;
 }
 
-export const initialAccountState: IAccountState = {
+export const initialUserState: IUserState = {
   login: false,
   user: null
 }
 
 
-const selectAuthState = createFeatureSelector<IAccountState>("accounts");
+const selectAuthState = createFeatureSelector<IUserState>("user");
 
 export const isLoggedIn = createSelector(selectAuthState, (state) => state.login);
 

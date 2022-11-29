@@ -33,33 +33,11 @@ export class CustomHttpClientService {
     );
   }
 
-  put(url: string, params: { [key: string]: any }, needsAuth: boolean = false): Observable<any> {
-    return this.http.put(`${this.BASE_URL}/${url}${this.getAuthPath(needsAuth)}`, params).pipe(
-      catchError(err => {
-        if (err.error.detail === this.BAD_TOKEN_PERMISSION_MESSAGE) {
-          this.logout();
-        }
-        return throwError(err);
-      })
-    );
-  }
-
   get(url: string, needsAuth: boolean = false, params = {}): Observable<any> {
     let options = {
       params
     }
     return this.http.get(`${this.BASE_URL}/${url}${this.getAuthPath(needsAuth)}`, options).pipe(
-      catchError(err => {
-        if (err.error.detail === this.BAD_TOKEN_PERMISSION_MESSAGE) {
-          this.logout();
-        }
-        return throwError(err);
-      })
-    );
-  }
-
-  delete(url: string, needsAuth: boolean = false): Observable<any> {
-    return this.http.delete(`${this.BASE_URL}/${url}${this.getAuthPath(needsAuth)}`).pipe(
       catchError(err => {
         if (err.error.detail === this.BAD_TOKEN_PERMISSION_MESSAGE) {
           this.logout();
@@ -79,20 +57,16 @@ export class CustomHttpClientService {
       if (token) {
         await this.get(`users/check_token/${token}`).toPromise();
         const init_rsp = await this.get(`users/init/${token}`).toPromise();
-        this.store.dispatch(UserActions.updateAccountsStore({ data: { login: true, user: init_rsp.user } }));
+        this.store.dispatch(UserActions.updateUsersStore({ data: { login: true, user: init_rsp.user } }));
       }
     } catch (error: any) {
-      if (error.url?.includes('check-school')) {
-        this.router.navigate(['/404-not-found']);
-      } else {
-        this.cookieService.delete(TOKEN_KEY, '/');
-      }
+      this.cookieService.delete(TOKEN_KEY, '/');
     }
   }
 
   logout() {
     this.cookieService.delete(TOKEN_KEY, '/');
     this.store.dispatch(UserActions.logout());
-    this.router.navigate(['/admin/login']);
+    this.router.navigate(['/user/login']);
   }
 }

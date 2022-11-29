@@ -2,11 +2,11 @@ import { createAction, props } from "@ngrx/store";
 import { UserState } from ".";
 
 
-export const updateAccountsStore = createAction(
-  '[Accounts] UPDATE_STORE',
-  props<{ data: UserState.IAccountState }>()
+export const updateUsersStore = createAction(
+  '[Users] UPDATE_STORE',
+  props<{ data: UserState.IUserState }>()
 );
 
 export const logout = createAction(
-  '[Accounts] LOGOUT'
+  '[Users] LOGOUT'
 );

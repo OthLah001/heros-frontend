@@ -45,7 +45,7 @@ export class SignupComponent {
         date.setDate(date.getDate() + 7);
         this.cookieService.set(TOKEN_KEY, data.token, date, '/');
         console.log('data => ', data)
-        this.store.dispatch(UserActions.updateAccountsStore({ data: { login: true, user: data.user } }));
+        this.store.dispatch(UserActions.updateUsersStore({ data: { login: true, user: data.user } }));
         this.router.navigate(['/heros/list']);
       },
       error => this.generalError = true
