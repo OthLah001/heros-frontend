@@ -13,6 +13,8 @@ import { HerosEffects } from './store/effetcs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HerosService } from './heros.service';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { HeroProfileComponent } from './hero-profile/hero-profile.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes = [
   {
@@ -33,7 +35,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     HerosListComponent,
-    HeroAddComponent
+    HeroAddComponent,
+    HeroProfileComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +49,8 @@ const routes: Routes = [
     MatIconModule,
     MatProgressSpinnerModule,
     MatSlideToggleModule,
-    EffectsModule.forFeature([HerosEffects])
+    EffectsModule.forFeature([HerosEffects]),
+    MatDialogModule
   ],
   providers: [
     HerosService,

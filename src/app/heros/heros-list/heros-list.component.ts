@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { merge, Observable, of } from 'rxjs';
+import { HeroProfileComponent } from '../hero-profile/hero-profile.component';
 import { HeroListType } from '../heros.models';
 import { HerosActions, HerosState } from '../store';
 
@@ -25,6 +27,7 @@ export class HerosListComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store,
     private actions$: Actions,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -64,5 +67,18 @@ export class HerosListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.store.dispatch(HerosActions.resetHerosList());
+  }
+
+  showHeroProfile(id: number) {
+    this.dialog.open(
+      HeroProfileComponent,
+      {
+        data: {
+          id
+        },
+        height: '500px',
+        width: '500px'
+      }
+    );
   }
 }

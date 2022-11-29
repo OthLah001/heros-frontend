@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CustomHttpClientService } from '../services/custom-http-client.service';
-import { HeroListPaginationType } from './heros.models';
+import { HeroListPaginationType, HeroType } from './heros.models';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +22,9 @@ export class HerosService {
     return this.http.get(
       `${this.BASIC_PATH}/list`, true, { page, search, orderBy }
     );
+  }
+
+  getHero(id: number): Observable<HeroType> {
+    return this.http.get(`${this.BASIC_PATH}/get/${id}`, true);
   }
 }

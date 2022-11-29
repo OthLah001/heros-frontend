@@ -1,5 +1,6 @@
 export type HeroType = {
   userId: number;
+  id: number;
   name: string;
   powers: string;
   description?: string;

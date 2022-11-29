@@ -23,7 +23,7 @@
         <th>Powers</th>
         <th>Rate</th>
       </tr>
-      <tr *ngFor="let hero of ((heros$ | async))">
+      <tr *ngFor="let hero of ((heros$ | async))" (click)="showHeroProfile(hero.id)">
         <td>{{ hero.name }}</td>
         <td>{{ hero.powers }}</td>
         <td>-</td>
