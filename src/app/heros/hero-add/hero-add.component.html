@@ -1,0 +1,45 @@
+<div class="main-cont">
+
+  <div class="header">
+
+    <button routerLink="/heros/list" class="link-btn" type="button" mat-raised-button>
+      <mat-icon aria-hidden="false" aria-label="arrow_left icon">arrow_left</mat-icon>
+      Heros' list
+    </button>
+
+    <button class="save-btn" type="button" mat-raised-button (click)="save()">
+      Save & Add new hero
+    </button>
+  </div>
+
+  <div *ngIf="generalError" class="message error-message" role="alert">
+    Incorrect information
+  </div>
+  <div *ngIf="addedCorrectly" class="message success-message" role="alert">
+    Hero created successfully. Add a new one!
+  </div>
+
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput placeholder="Batman" formControlName="name">
+      <mat-error *ngIf="form.get('name')?.touched && form.get('name')?.hasError('required')">Required</mat-error>
+      <mat-error *ngIf="form.get('name')?.touched && form.get('name')?.hasError('maxLength')">Max length is 255</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <input type="text" matInput placeholder="Description.........." formControlName="description">
+      <mat-error *ngIf="form.get('description')?.touched && form.get('description')?.hasError('maxLength')">Max length is 500</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Powers</mat-label>
+      <input type="text" matInput placeholder="power1, power2, power3, ..." formControlName="powers">
+      <mat-error *ngIf="form.get('powers')?.touched && form.get('powers')?.hasError('required')">Required</mat-error>
+      <mat-error *ngIf="form.get('powers')?.touched && form.get('powers')?.hasError('maxLength')">Max length is 255</mat-error>
+    </mat-form-field>
+  </form>
+
+
+</div>

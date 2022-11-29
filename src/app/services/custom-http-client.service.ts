@@ -58,17 +58,6 @@ export class CustomHttpClientService {
     );
   }
 
-  getFile(url: string, needsAuth: boolean = false ,queryParams: HttpParams = new HttpParams()): Observable<any> {
-    return this.http.get(`${this.BASE_URL}/${url}${this.getAuthPath(needsAuth)}`, { responseType: 'blob' , params: queryParams}).pipe(
-      catchError(err => {
-        if (err.error.detail === this.BAD_TOKEN_PERMISSION_MESSAGE) {
-          this.logout();
-        }
-        return throwError(err);
-      })
-    );
-  }
-
   delete(url: string, needsAuth: boolean = false): Observable<any> {
     return this.http.delete(`${this.BASE_URL}/${url}${this.getAuthPath(needsAuth)}`).pipe(
       catchError(err => {
@@ -81,7 +70,7 @@ export class CustomHttpClientService {
   }
 
   getAuthPath(isAuth: boolean) {
-    return isAuth ? `${this.cookieService.get(TOKEN_KEY)}/` : '/';
+    return isAuth ? `/${this.cookieService.get(TOKEN_KEY)}/` : '/';
   }
 
   async checkAuth() {

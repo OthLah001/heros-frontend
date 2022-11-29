@@ -1,0 +1,55 @@
+.main-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .header {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    margin-top: 50px;
+
+    .link-btn {
+      background-color: var(--secondary-color);
+      color: white;
+    }
+
+    .save-btn {
+      background-color: var(--main-color);
+      color: white;
+    }
+  }
+
+  .message {
+    width: 420px !important;
+    margin: auto;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: .75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+
+    &.error-message {
+      color: var(--error-color);
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+    }
+
+    &.success-message {
+      color: var(--success-color);
+      background-color: #bcffcf;
+      border-color: #9dffb8;
+    }
+  }
+
+  form {
+    width: 100%;
+    text-align: center;
+  }
+
+  mat-form-field {
+    width: 80%;
+  }
+}
