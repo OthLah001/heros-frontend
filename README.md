@@ -10,7 +10,7 @@
 ## Requirements
 
 You need to install:
-* [Node.js](https://nodejs.org/)(> 14.20.0)
+* [Node.js](https://nodejs.org/) (> 14.20.0)
 * [NPM](https://npmjs.org/)
 * [Git](https://git-scm.com/)
 
