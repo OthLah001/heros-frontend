@@ -10,6 +10,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { metaReducers, reducers } from './reducers';
 import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 function initApp(http: CustomHttpClientService) {
   return () => http.checkAuth();
@@ -34,6 +35,7 @@ function initApp(http: CustomHttpClientService) {
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
+    NavbarComponent
   ],
   providers: [
     CookieService,

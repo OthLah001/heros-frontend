@@ -12,7 +12,7 @@ export const userReducer = createReducer(
   }),
   on(UserActions.logout, (state, action) => {
     const stateCopy = JSON.parse(JSON.stringify(state));
-    stateCopy.isAuth = false;
+    stateCopy.login = false;
     stateCopy.user = null;
     return stateCopy;
   })
